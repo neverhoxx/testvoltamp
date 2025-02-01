@@ -1,0 +1,49 @@
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { products } from '../../data/products';
+import settings from '../../images/settings-2-svgrepo-com.svg'
+
+export function ProductDetails() {
+    const { id } = useParams();
+    const product = products.find(product => product.id === parseInt(id));
+
+    return (
+        <>
+            <div className="product-det-page">
+                <div className="__container">
+                    <div className="product-details-block">
+                        <img className='product-details-pic' src={product.img} alt="Picture" />
+                        <div className="product-details">
+                            <div className="product-details-name-block">
+                                <h2 className="product-details-name">
+                                    {product.name}
+                                </h2>
+                            </div>
+                            <div className="product-details-type-block">
+                                <h2 className="product-details-type">
+                                    {product.type}
+                                </h2>
+                            </div>
+                            <div className="product-details-price-block">
+                                <h2 className="prosuct-details-name">
+                                    {product.price}€
+                                </h2>
+                            </div>
+                            <div className="add-product-to-cart-btn">
+                                Lisa ostukorvi
+                            </div>
+                        </div>
+                    </div>
+                    <div className="characteristics-block">
+                        <div className="characteristics-block-title">
+                            <h1>Omadused</h1> <img src={settings} alt="" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default ProductDetails;

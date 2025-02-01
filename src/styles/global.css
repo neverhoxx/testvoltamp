@@ -1,0 +1,33 @@
+@import './header.css';
+@import './home.css';
+@import './burgerMenu.css';
+@import './products.css';
+
+
+body,
+html {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #0b3954;
+    
+}
+
+
+div.wrapper {
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    
+    overflow-x: hidden;
+    position: relative;
+}
+#root{
+    width: 100%;
+    height: 100% !important;
+}
+
+span {
+    color: #0B3954;
+}

@@ -1,0 +1,214 @@
+.page {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-top: 90px;
+}
+
+.main-page-welcome-block{
+    min-height: calc(100vh - 90px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/environmental-engineers-working-together.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+}
+
+.main-page-welcome-block__container{
+    min-height: calc(100vh - 90px);
+}
+
+.main-page-welcome-block-content{
+    max-width: 500px;
+    padding-top: 100px;
+    user-select: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+}
+
+.main-page-welcome-block-title{
+    color: #d2691e;
+    font-size: 50px;
+}
+
+.main-page-welcome-block-btn{
+    color: #fff;
+    padding: 10px 20px;
+
+    cursor: pointer;
+    border: 3px solid #d2691e;
+    border-radius: 15px;
+
+    margin-top: 40px;
+    width: 50%;
+}
+
+.main-page-welcome-block-btn:hover{
+    color: #d2691e;
+    border-color: #fff;
+}
+
+@media(max-width: 426px){
+    .main-page-welcome-block-title{
+        font-size: 32px;
+    }
+}
+
+.main-subwelcome-card{
+    width: 320px;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+    border: 4px #d2691e solid;
+
+    user-select: none;
+}
+
+.main-page-subwelcome-block__container{
+    display: flex;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 50px;
+}
+
+.main-subwelcome-title{
+    margin-top: 20px;
+}
+
+.main-subwelcome-card-pic{
+    width: 100px;
+    height: 50px;
+}
+
+.main-page-products-block{
+    height: 450px;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/futuristic-solar-power-station-generates-clean-electricity-generated-by-ai.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-page-products-title{
+    font-size: 50px;
+    color: #d2691e;
+}
+
+.main-page-products-text{
+    font-size: 28px;
+    
+    color: #fff;
+}
+
+.main-page-products-text-block{
+    z-index: 3;
+}
+
+.main-page-products-pic{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 20%;
+    right: 0;
+
+    z-index: 1;
+}
+
+.main-page-products-btn-block{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    
+}
+
+.main-page-products-btn{
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    border: 3px solid #d2691e;
+    border-radius: 15px;
+    width: 100%;
+    cursor: pointer;
+
+    margin-top: 50px;
+
+    user-select: none;
+}
+.main-page-products-list{
+    margin-bottom: 20px;
+}
+.main-page-products-list__container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    place-items: center;
+}
+
+.main-page-popular-products-title{
+    margin: 20px 0;
+    font-size: 46px;
+}
+
+.main-page-services-title{
+
+    font-size: 46px;
+}
+
+.main-page-services-card-text-block{
+    margin: 0 50px;
+}
+
+.main-page-services-card-title{
+    margin-bottom: 10px;
+}
+
+.main-page-services__container{
+    background-color: #ececec;
+
+    padding: 20px 50px;
+}
+
+.main-page-services-card{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.main-page-services-card-pic{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    user-select: none;
+
+    margin: auto 0;
+    
+}
+
+.main-page-questions-block{
+    margin: 50px 0;
+}
+
+.main-page-questions__container{
+    padding: 20px 50px;
+    background-color: #ececec;
+}
+
+.main-page-questions-contacts{
+    margin-top: 15px;
+}
+
+.main-page-questions-contacts-name{
+    margin-bottom: 10px;
+}
