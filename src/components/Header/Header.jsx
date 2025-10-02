@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ROUTES } from '../../utils/routes.js';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../../images/VOLTAMP logo 1-1.png';
 
 export const Header = () => {
     const location = useLocation();
@@ -12,8 +13,14 @@ export const Header = () => {
         setIsOpen(!isOpen);
     };
 
-    const toggleArrow = (id) => {
-        setOpenArrows((prevState) => (prevState === id ? null : id));
+    const [hoveredItem, setHoveredItem] = useState(null);
+
+    const handleMouseEnter = (id) => {
+        setHoveredItem(id);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredItem(null);
     };
 
     const navItems = [
@@ -67,11 +74,6 @@ export const Header = () => {
             hasArrow: location.pathname !== "/products",
             content: (
                 <div className='header-products-categories-block__container'>
-                    <Link to={ROUTES.PRODUCTS} className='see-all-products-link'>
-                        <h4 className='seeAllProducts'>
-                            SEE ALL PRODUCTS
-                        </h4>
-                    </Link>
                     <div className="header-products-categories-content">
                         <div className="header-products-categories-block">
                             <h2 className='header-products-categories-block-title'>
@@ -165,6 +167,11 @@ export const Header = () => {
                                 </li>
                             </ul>
                         </div>
+                        <Link to={ROUTES.PRODUCTS} className='see-all-products-link'>
+                            <h4 className='seeAllProducts-btn'>
+                                SEE ALL PRODUCTS
+                            </h4>
+                        </Link>
                     </div>
 
                 </div>
@@ -197,7 +204,7 @@ export const Header = () => {
                 <div className="header__container __container">
                     <div className="header-logo">
                         <Link className="header-logo-link" to={ROUTES.HOME}>
-                            <span>volt</span>amp
+                            <img src={logo} alt="" />
                         </Link>
                     </div>
                     <nav className="header-nav">
@@ -206,12 +213,16 @@ export const Header = () => {
                                 <li
                                     key={item.id}
                                     className="header-nav-item"
-                                    onClick={item.hasArrow ? () => toggleArrow(item.id) : null}
+
+                                    onMouseEnter={() => {
+                                        handleMouseEnter(item.id);
+                                    }}
+
                                 >
                                     <a className="header-nav-link" style={{ color: item.color }} >
                                         {item.name}
                                         {item.hasArrow &&
-                                            (openArrows === item.id ? (
+                                            (hoveredItem === item.id && item.content ? (
                                                 <svg
                                                     className="header-arrow"
                                                     stroke="currentColor"
@@ -279,20 +290,23 @@ export const Header = () => {
                     ))}
                 </ul>
             </div>
-
             {
-                navItems.map(
-                    (item) =>
-                        item.hasArrow &&
-                        openArrows === item.id && (
-                            <div className="header-products-categoties open" key={item.id}>
-                                <div className="__container header-products-categories__container">
-                                    {item.content}
-                                </div>
+                navItems.map((item) =>
+                    hoveredItem === item.id && item.content && (
+                        <div
+                            className="header-products-categoties open"
+                            key={item.id}
+                            onMouseEnter={() => handleMouseEnter(item.id)}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <div className="__container header-products-categories__container">
+                                {item.content}
                             </div>
-                        )
+                        </div>
+                    )
                 )
             }
+
         </div >
     );
 };

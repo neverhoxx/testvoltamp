@@ -1,11 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../../data/products';
-import settings from '../../images/settings-2-svgrepo-com.svg'
+
+import ProductCharacteristics from './ProductsCharacteristics';
 
 export function ProductDetails() {
     const { id } = useParams();
-    const product = products.find(product => product.id === parseInt(id));
+    const productId = parseInt(id);
+
+    const product = products.find(product => product.id === productId);
+
 
     return (
         <>
@@ -34,12 +38,12 @@ export function ProductDetails() {
                             </div>
                         </div>
                     </div>
-                    <div className="characteristics-block">
-                        <div className="characteristics-block-title">
-                            <h1>Omadused</h1> <img src={settings} alt="" />
-                        </div>
+                    {product.characteristics ? (
+                        <ProductCharacteristics characteristics={product.characteristics} />
+                    ) : (
+                        <p>No characteristics available for this product.</p>
+                    )}
 
-                    </div>
                 </div>
             </div>
         </>
